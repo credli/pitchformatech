@@ -1,31 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Yf-AB-T9H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G7x-4z-x4e">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="9Oq-jH-xbL">
+        <!--Playback View Controller-->
+        <scene sceneID="ts3-4Q-pim">
             <objects>
-                <navigationController id="5Yf-AB-T9H" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g4N-xQ-fXC">
+                <viewController id="cX1-kU-Yxd" customClass="PlaybackViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7yj-e7-gNP"/>
+                        <viewControllerLayoutGuide type="bottom" id="EpD-QL-Ork"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DKT-1w-rY3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS4-eZ-lRt">
+                                <rect key="frame" x="279" y="103" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BS4-eZ-lRt" firstAttribute="centerX" secondItem="DKT-1w-rY3" secondAttribute="centerX" id="RQf-av-X5p"/>
+                            <constraint firstItem="BS4-eZ-lRt" firstAttribute="top" secondItem="7yj-e7-gNP" secondAttribute="bottom" constant="39" id="et2-uF-2oO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentDateLabel" destination="BS4-eZ-lRt" id="JbY-fU-JA0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ike-Kt-gXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="837" y="-38"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QOn-ci-enJ">
+            <objects>
+                <navigationController id="G7x-4z-x4e" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sB0-sJ-9Qe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wyA-uU-WWr"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gKr-cW-Ouv"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGi-ko-zWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jqD-h2-Wse" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-612" y="30"/>
+            <point key="canvasLocation" x="-731" y="-38"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -35,8 +67,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZ8-wj-jBR">
-                                <rect key="frame" x="276" y="285" width="49" height="30"/>
-                                <state key="normal" title="Record"/>
+                                <rect key="frame" x="270" y="285" width="61" height="30"/>
+                                <state key="normal" title="{Record}"/>
                                 <connections>
                                     <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQb-lj-bpb"/>
                                 </connections>
@@ -51,68 +83,12 @@
                     <navigationItem key="navigationItem" id="9eP-pu-mkj"/>
                     <connections>
                         <outlet property="recordButton" destination="GZ8-wj-jBR" id="oZR-Go-4jL"/>
-                        <segue destination="bpO-KT-KWw" kind="show" identifier="playbackSegue" id="Zxa-vo-YeM"/>
+                        <segue destination="cX1-kU-Yxd" kind="show" identifier="playbackSegue" id="Rx3-CT-8OW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="123" y="30"/>
-        </scene>
-        <!--Playback View Controller-->
-        <scene sceneID="1MJ-JJ-csx">
-            <objects>
-                <viewController id="bpO-KT-KWw" customClass="PlaybackViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Q8G-E2-ulu"/>
-                        <viewControllerLayoutGuide type="bottom" id="0Yl-P2-MSe"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dpz-tq-0wt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDC-mn-6kB">
-                                <rect key="frame" x="20" y="28" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Vok-6T-EoO"/>
-                                    <constraint firstAttribute="height" constant="100" id="Yr4-4u-MPQ"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="slow"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqO-uf-ja8">
-                                <rect key="frame" x="70" y="400" width="100" height="100"/>
-                                <state key="normal" title="Button" image="chipmunk"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14p-Ec-bLA">
-                                <rect key="frame" x="363" y="405" width="100" height="100"/>
-                                <state key="normal" title="Button" image="vader"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD8-12-hNb">
-                                <rect key="frame" x="480" y="28" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="lmb-GD-HkZ"/>
-                                    <constraint firstAttribute="width" constant="100" id="ofO-5v-1OH"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="fast"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cD8-12-hNb" firstAttribute="top" secondItem="Q8G-E2-ulu" secondAttribute="bottom" constant="8" id="BtH-oT-dOl"/>
-                            <constraint firstItem="SDC-mn-6kB" firstAttribute="top" secondItem="Q8G-E2-ulu" secondAttribute="bottom" constant="8" id="bgV-f6-zH0"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="SDC-mn-6kB" secondAttribute="leading" id="h9c-Q8-cQc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cD8-12-hNb" secondAttribute="trailing" id="xSg-fC-zz9"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UCR-9w-L5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="865" y="30"/>
+            <point key="canvasLocation" x="17" y="-38"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="chipmunk" width="100" height="100"/>
-        <image name="fast" width="100" height="100"/>
-        <image name="slow" width="100" height="100"/>
-        <image name="vader" width="100" height="100"/>
-    </resources>
 </document>

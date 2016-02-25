@@ -9,11 +9,21 @@
 import UIKit
 
 class PlaybackViewController: UIViewController {
-
+    
+    var currentDate: NSDate?
+    var dateFormatter: NSDateFormatter = NSDateFormatter()
+    
+    @IBOutlet weak var currentDateLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Playback"
 
-        // Do any additional setup after loading the view.
+        self.dateFormatter.dateFormat = "d-M-yyyy H:mm:ss"
+        self.currentDateLabel.text = self.dateFormatter.stringFromDate(self.currentDate!)
+        
+        //self.navigationItem.setHidesBackButton(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
