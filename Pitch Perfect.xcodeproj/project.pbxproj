@@ -86,8 +86,8 @@
 				E1EA5BF11C5A7EB700ED6465 /* Assets.xcassets */,
 				E1EA5BF31C5A7EB700ED6465 /* LaunchScreen.storyboard */,
 				E1EA5BF61C5A7EB700ED6465 /* Info.plist */,
-				E1EA5C0A1C5A987E00ED6465 /* MainViewController.swift */,
 				E1573F861C7CC7A10060463B /* MainScreenState.swift */,
+				E1EA5C0A1C5A987E00ED6465 /* MainViewController.swift */,
 				E1573F881C7CDB970060463B /* PlaybackViewController.swift */,
 			);
 			path = "Pitch Perfect";

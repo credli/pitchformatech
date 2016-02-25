@@ -15,7 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //Step 1: initialize the main window
+        self.window = UIWindow()
+        
+        //Step 2: find a storyboard named "Main" inside the app's bundle
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        
+        //Step 3: find the initial controller from inside storyboard and instantiate it
+        let navController = storyboard.instantiateInitialViewController()
+        
+        //Step 4: set it to be the root View Controller
+        self.window?.rootViewController = navController
+        
+        //Step 5: make our window Key and Visible (ie. make it show)
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

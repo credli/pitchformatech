@@ -13,10 +13,16 @@ class MainViewController: UIViewController {
     @IBOutlet var recordButton: UIButton!
     var currentState: MainScreenState = .Stopped
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.recordButton.setTitle("Record", forState: .Normal)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.navigationItem.title = "Record"
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,17 +54,15 @@ class MainViewController: UIViewController {
     func setStateStopped() {
         self.currentState = .Stopped
         self.recordButton?.setTitle("Stopped", forState: .Normal)
+        
         self.performSegueWithIdentifier("playbackSegue", sender: self)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "playbackSegue" {
+            let playbackVC = segue.destinationViewController as! PlaybackViewController
+            playbackVC.currentDate = NSDate()
+        }
     }
-    */
 
 }
