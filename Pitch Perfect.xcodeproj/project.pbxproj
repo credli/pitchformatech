@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E13B63341C8A0AEC0045BED7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E13B63331C8A0AEC0045BED7 /* AVFoundation.framework */; };
 		E1573F871C7CC7A10060463B /* MainScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1573F861C7CC7A10060463B /* MainScreenState.swift */; };
 		E1573F891C7CDB970060463B /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1573F881C7CDB970060463B /* PlaybackViewController.swift */; };
 		E1EA5BEB1C5A7EB700ED6465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EA5BEA1C5A7EB700ED6465 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E13B63331C8A0AEC0045BED7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E1573F861C7CC7A10060463B /* MainScreenState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenState.swift; sourceTree = "<group>"; };
 		E1573F881C7CDB970060463B /* PlaybackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
 		E1EA5BE71C5A7EB700ED6465 /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E13B63341C8A0AEC0045BED7 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,10 +63,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E13B63351C8A0AF40045BED7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E1EA5BEE1C5A7EB700ED6465 /* Main.storyboard */,
+				E1EA5BF31C5A7EB700ED6465 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E13B63361C8A0AF90045BED7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1EA5C0A1C5A987E00ED6465 /* MainViewController.swift */,
+				E1573F881C7CDB970060463B /* PlaybackViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E13B63371C8A0AFE0045BED7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1573F861C7CC7A10060463B /* MainScreenState.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E13B63381C8A0B020045BED7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1EA5BF61C5A7EB700ED6465 /* Info.plist */,
+				E1EA5BF11C5A7EB700ED6465 /* Assets.xcassets */,
+				E13B63331C8A0AEC0045BED7 /* AVFoundation.framework */,
+			);
+			name = "Supporting Files";
+			path = "Pitch Perfect";
+			sourceTree = "<group>";
+		};
 		E1EA5BDE1C5A7EB700ED6465 = {
 			isa = PBXGroup;
 			children = (
 				E1EA5BE91C5A7EB700ED6465 /* Pitch Perfect */,
+				E13B63381C8A0B020045BED7 /* Supporting Files */,
 				E1EA5BFE1C5A7EB700ED6465 /* Pitch PerfectTests */,
 				E1EA5BE81C5A7EB700ED6465 /* Products */,
 			);
@@ -82,13 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				E1EA5BEA1C5A7EB700ED6465 /* AppDelegate.swift */,
-				E1EA5BEE1C5A7EB700ED6465 /* Main.storyboard */,
-				E1EA5BF11C5A7EB700ED6465 /* Assets.xcassets */,
-				E1EA5BF31C5A7EB700ED6465 /* LaunchScreen.storyboard */,
-				E1EA5BF61C5A7EB700ED6465 /* Info.plist */,
-				E1573F861C7CC7A10060463B /* MainScreenState.swift */,
-				E1EA5C0A1C5A987E00ED6465 /* MainViewController.swift */,
-				E1573F881C7CDB970060463B /* PlaybackViewController.swift */,
+				E13B63371C8A0AFE0045BED7 /* Models */,
+				E13B63361C8A0AF90045BED7 /* Controllers */,
+				E13B63351C8A0AF40045BED7 /* Views */,
 			);
 			path = "Pitch Perfect";
 			sourceTree = "<group>";
