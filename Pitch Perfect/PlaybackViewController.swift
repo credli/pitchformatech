@@ -7,23 +7,39 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlaybackViewController: UIViewController {
     
-    var currentDate: NSDate?
-    var dateFormatter: NSDateFormatter = NSDateFormatter()
-    
-    @IBOutlet weak var currentDateLabel: UILabel!
+    var audioPlayer: AVAudioPlayer!
+    var receivedRecordedFile: RecordingFile!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.title = "Playback"
-
-        self.dateFormatter.dateFormat = "d-M-yyyy H:mm:ss"
-        self.currentDateLabel.text = self.dateFormatter.stringFromDate(self.currentDate!)
         
-        //self.navigationItem.setHidesBackButton(true, animated: false)
+        if let url = receivedRecordedFile.filePathURL {
+            self.audioPlayer = try! AVAudioPlayer(contentsOfURL: url)
+            self.audioPlayer.enableRate = true
+        } else {
+            print("filePathURL was nil")
+        }
+    }
+    
+    func playAtRate(var rate: Float) {
+        if rate < 0.5 {
+            rate = 0.5
+        }
+        if rate > 2.0 {
+            rate = 2.0
+        }
+        
+        //reset audioPlayer and play from the start
+        audioPlayer.stop()
+        audioPlayer.rate = rate
+        audioPlayer.currentTime = 0.0
+        audioPlayer.play()
+        audioPlayer.updateMeters()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +47,16 @@ class PlaybackViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func playFast() {
+        playAtRate(1.5)
+        print("playing fast")
+    }
+    
+    @IBAction func playSlow() {
+        playAtRate(0.5)
+        print("playing slow")
+    }
+    
     /*
     // MARK: - Navigation
 

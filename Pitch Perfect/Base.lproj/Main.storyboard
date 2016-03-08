@@ -17,22 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS4-eZ-lRt">
-                                <rect key="frame" x="279" y="103" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5n2-My-jgA">
+                                <rect key="frame" x="267" y="101" width="66" height="30"/>
+                                <state key="normal" title="Play Slow"/>
+                                <connections>
+                                    <action selector="playSlow" destination="cX1-kU-Yxd" eventType="touchUpInside" id="i5G-vn-QLj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vj2-1D-C6b">
+                                <rect key="frame" x="269" y="162" width="62" height="30"/>
+                                <state key="normal" title="Play Fast"/>
+                                <connections>
+                                    <action selector="playFast" destination="cX1-kU-Yxd" eventType="touchUpInside" id="Cqm-6W-m6I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BS4-eZ-lRt" firstAttribute="centerX" secondItem="DKT-1w-rY3" secondAttribute="centerX" id="RQf-av-X5p"/>
-                            <constraint firstItem="BS4-eZ-lRt" firstAttribute="top" secondItem="7yj-e7-gNP" secondAttribute="bottom" constant="39" id="et2-uF-2oO"/>
+                            <constraint firstItem="5n2-My-jgA" firstAttribute="centerX" secondItem="DKT-1w-rY3" secondAttribute="centerX" id="4Hb-4Q-cJY"/>
+                            <constraint firstItem="5n2-My-jgA" firstAttribute="top" secondItem="7yj-e7-gNP" secondAttribute="bottom" constant="37" id="BFD-4Y-xEa"/>
+                            <constraint firstItem="vj2-1D-C6b" firstAttribute="centerX" secondItem="DKT-1w-rY3" secondAttribute="centerX" id="jDC-Pu-ESg"/>
+                            <constraint firstItem="vj2-1D-C6b" firstAttribute="top" secondItem="5n2-My-jgA" secondAttribute="bottom" constant="31" id="lDU-eC-VBV"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="currentDateLabel" destination="BS4-eZ-lRt" id="JbY-fU-JA0"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ike-Kt-gXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

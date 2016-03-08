@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     
     //step 2: create an Audio recorder variable which will allow us to record / stop an audio
     var audioRecoder: AVAudioRecorder!
+    var recording: RecordingFile?
     
     @IBOutlet var recordButton: UIButton!
     var currentState: MainScreenState = .Stopped
@@ -72,24 +73,29 @@ class MainViewController: UIViewController {
     func setStateRecording() {
         
         //step 5: initialize the audio recorder if it wasn't already initialized
-        if self.audioRecoder == nil {
-            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-            let fullPath = documentsDirectory.stringByAppendingString("/voiceRecording.caf")
-            print(fullPath)
-            let url = NSURL.fileURLWithPath(fullPath)
-            
-            //create AnyObject of settings
-            let settings: [String : AnyObject] = [
-                AVFormatIDKey:Int(kAudioFormatAppleIMA4), //Int required in Swift2
-                AVSampleRateKey:44100.0,
-                AVNumberOfChannelsKey:2,
-                AVEncoderBitRateKey:12800,
-                AVLinearPCMBitDepthKey:16,
-                AVEncoderAudioQualityKey:AVAudioQuality.Max.rawValue
-            ]
-            
-            try! self.audioRecoder = AVAudioRecorder(URL: url, settings: settings)
-        }
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        
+        //step 5.1: create a capture of the current and set it as the filename
+        //this is to allow multiple files to be written in our folder
+        let currentDate = NSDate()
+        let currentDateString = Constants.sharedInstance.globalDateFormatter.stringFromDate(currentDate)
+        
+        let fullPath = documentsDirectory.stringByAppendingString("/\(currentDateString).caf")
+        print(fullPath)
+        
+        self.recording = RecordingFile(filePath: fullPath)
+        
+        //create AnyObject of settings
+        let settings: [String : AnyObject] = [
+            AVFormatIDKey:Int(kAudioFormatAppleIMA4), //Int required in Swift2
+            AVSampleRateKey:44100.0,
+            AVNumberOfChannelsKey:2,
+            AVEncoderBitRateKey:12800,
+            AVLinearPCMBitDepthKey:16,
+            AVEncoderAudioQualityKey:AVAudioQuality.Max.rawValue
+        ]
+        
+        try! self.audioRecoder = AVAudioRecorder(URL: (self.recording?.filePathURL!)!, settings: settings)
         
         //step 6: start recording
         self.audioRecoder.record()
@@ -113,7 +119,7 @@ class MainViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "playbackSegue" {
             let playbackVC = segue.destinationViewController as! PlaybackViewController
-            playbackVC.currentDate = NSDate()
+            playbackVC.receivedRecordedFile = self.recording
         }
     }
 
