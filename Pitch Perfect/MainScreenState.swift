@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum MainScreenState {
+public enum MainScreenState: Int {
     case Recording
     case Stopped
 }
